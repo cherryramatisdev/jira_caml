@@ -1,0 +1,55 @@
+# OCaml and dune build artifacts
+_build/
+*.install
+*.install.metadata
+*.install.tmp
+*.odoc
+*.cmt
+*.cmti
+*.cmi
+*.cmo
+*.cmx
+*.cmxa
+*.cma
+*.cmt
+*.annot
+*.o
+*.exe
+*.byte
+*.native
+
+# Merlin editor plugin files
+.merlin
+.merlin.log
+
+# Dependency directories (e.g., opam and esy)
+.esy
+_opam
+opam-debug.log
+opam-logs/
+
+# Editor and IDE-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.iml
+*.swp
+*.swo
+*.swn
+*.tmproj
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+log/
+*.log
+*.tmp
+
+# Ignore OCaml switch files (e.g., .ocamlinit)
+*.ocp
+*.ocp-indent
+
+# Ignore compiled bytecode files for tests and benchmarks
+_test/
+_bench/
