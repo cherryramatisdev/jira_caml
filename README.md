@@ -2,6 +2,6 @@
 
 Original reference project: <https://github.com/cherryramatisdev/jirarust>
 
-## To dos
+## To-dos
 
-- [ ] Define general http client with this: <https://github.com/dmmulroy/ocaml-playlist-transfer/blob/main/lib/shared/http.ml>
+- [ ] Possible http wrapper: <https://github.com/dmmulroy/ocaml-playlist-transfer/blob/main/lib/shared/http.ml>
