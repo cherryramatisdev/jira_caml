@@ -19,11 +19,14 @@
  (name jira_caml)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends 
-   cohttp-lwt-unix
-   ocaml 
-   dune 
-   cmdliner)
+ (depends
+  cohttp-lwt-unix
+  ocaml
+  yojson
+  ppx_deriving
+  ppx_deriving_yojson
+  dune
+  cmdliner)
  (tags
   (topics "to describe" your project)))
 
