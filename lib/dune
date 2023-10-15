@@ -1,3 +1,5 @@
 (library
  (name lib)
- (libraries unix str lwt cohttp-lwt-unix))
+ (libraries unix str lwt cohttp-lwt-unix yojson ppx_deriving ppx_deriving_yojson)
+ (preprocess
+  (pps ppx_deriving.show ppx_deriving.make ppx_deriving_yojson)))
