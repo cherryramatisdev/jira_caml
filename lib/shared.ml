@@ -1,4 +1,5 @@
 let ( |> ) x f = f x
+let ( let* ) = Result.bind
 
 let rec replace_word str old_word new_word =
   match String.split_on_char ' ' str with
