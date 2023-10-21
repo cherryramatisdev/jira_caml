@@ -18,8 +18,11 @@ let open_card cmd =
   Result.ok cmd
 
 let status cmd =
-  Printf.printf "status command %s" cmd |> print_newline;
-  Result.ok cmd
+  let open Lib__Shared in
+  let open Lib__Jira in
+  let* status = get_card_status cmd in
+  print_endline status;
+  Result.ok status
 
 let pr_title cmd =
   let open Lib__Shared in
