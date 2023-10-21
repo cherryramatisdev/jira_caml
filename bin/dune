@@ -1,4 +1,4 @@
 (executable
  (public_name jira_caml)
  (name main)
- (libraries commands cmdliner))
+ (libraries commands))

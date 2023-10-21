@@ -25,8 +25,7 @@
   yojson
   ppx_deriving
   ppx_deriving_yojson
-  dune
-  cmdliner)
+  dune)
  (tags
   (topics "to describe" your project)))
 

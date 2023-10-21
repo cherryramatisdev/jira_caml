@@ -16,7 +16,6 @@ depends: [
   "ppx_deriving"
   "ppx_deriving_yojson"
   "dune" {>= "3.10"}
-  "cmdliner"
   "odoc" {with-doc}
 ]
 build: [
