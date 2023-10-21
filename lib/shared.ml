@@ -33,3 +33,6 @@ let execute_and_capture_output command =
   | Unix_error (err, _, _) ->
       Printf.sprintf "Error executing command: %s" (error_message err)
   | End_of_file -> "No output"
+
+(* TODO: support different OSes *)
+let get_open_cmd () = "open"

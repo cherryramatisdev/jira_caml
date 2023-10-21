@@ -13,9 +13,16 @@ let review card_index =
   Printf.printf "review command %s" card_index |> print_newline;
   Result.ok card_index
 
-let open_card cmd =
-  Printf.printf "open command %s" cmd |> print_newline;
-  Result.ok cmd
+let open_card card_index =
+  let open Lib__Shared in
+  let* config = Lib.Config.config () in
+  let url_card =
+    Printf.sprintf "%s/browse/%s-%s" config.prefixes.url_prefix
+      config.prefixes.card_prefix card_index
+  in
+  let open_cmd = get_open_cmd () in
+  let _ = Printf.sprintf "%s %s" open_cmd url_card |> Sys.command in
+  Result.ok url_card
 
 let status card_index =
   let open Lib__Shared in
