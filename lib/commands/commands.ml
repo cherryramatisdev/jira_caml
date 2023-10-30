@@ -6,11 +6,13 @@ let view card_index =
   Result.ok description
 
 let progress card_index =
-  Printf.printf "progress command %s" card_index |> print_newline;
+  let open Lib__Jira in
+  let _ = move_card Progress card_index in
   Result.ok card_index
 
 let review card_index =
-  Printf.printf "review command %s" card_index |> print_newline;
+  let open Lib__Jira in
+  let _ = move_card Review card_index in
   Result.ok card_index
 
 let open_card card_index =

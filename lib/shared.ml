@@ -1,5 +1,6 @@
 let ( |> ) x f = f x
 let ( let* ) = Result.bind
+let ( let@ ) = Lwt.bind
 
 let rec replace_word str old_word new_word =
   match String.split_on_char ' ' str with
@@ -34,5 +35,7 @@ let execute_and_capture_output command =
       Printf.sprintf "Error executing command: %s" (error_message err)
   | End_of_file -> "No output"
 
-(* TODO: support different OSes *)
+(* TODO: support different OSes
+   maybe this could be in a separate module
+*)
 let get_open_cmd () = "open"

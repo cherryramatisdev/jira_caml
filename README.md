@@ -4,4 +4,6 @@ Original reference project: <https://github.com/cherryramatisdev/jirarust>
 
 ## To-dos
 
-- [ ] Possible http wrapper: <https://github.com/dmmulroy/ocaml-playlist-transfer/blob/main/lib/shared/http.ml>
+- [ ] Improve the header management of the http module
+- [ ] Support creating a new branch on the progress command
+- [ ] Support creating a new pull request on the review command
