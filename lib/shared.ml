@@ -23,17 +23,36 @@ let remove_char str char_to_remove =
     aux str index
   with Not_found -> str
 
-let execute_and_capture_output command =
-  let open Unix in
-  try
-    let in_channel = open_process_in command in
-    let output = input_line in_channel in
-    close_in in_channel;
-    output
-  with
-  | Unix_error (err, _, _) ->
-      Printf.sprintf "Error executing command: %s" (error_message err)
-  | End_of_file -> "No output"
+module Shell = struct
+  let execute command =
+    let open Unix in
+    open_process_in command
+
+  let execute_and_capture_output command =
+    let open Unix in
+    try
+      let in_channel = execute command in
+      let output = input_line in_channel in
+      close_in in_channel;
+      output
+    with
+    | Unix_error (err, _, _) ->
+        Printf.sprintf "Error executing command: %s" (error_message err)
+    | End_of_file -> "No output"
+
+  let choose_option options =
+    let options_string = String.concat " or " (Array.to_list options) in
+    print_endline ("Choose between " ^ options_string ^ ":");
+    let rec get_input () =
+      let input = read_line () in
+      if Array.mem input options then input
+      else (
+        print_endline
+          ("Invalid option. Please choose between " ^ options_string ^ ":");
+        get_input ())
+    in
+    get_input ()
+end
 
 (* TODO: support different OSes
    maybe this could be in a separate module
