@@ -6,8 +6,12 @@ let view card_index =
   Result.ok description
 
 let progress card_index =
-  let open Lib__Jira in
-  let _ = move_card Progress card_index in
+  let open Lib in
+  let open Lib__Shared in
+  let* config = Lib.Config.config () in
+  let branch_prefix = Shell.choose_option [|"feature"; "fix"|] in
+  let _ = Jira.move_card Progress card_index in
+  let _ = Git.create_and_checkout_branch (Printf.sprintf "%s/%s-%s" branch_prefix config.prefixes.card_prefix card_index) in
   Result.ok card_index
 
 let review card_index =
